@@ -1,28 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ChevronRight, Briefcase, Calendar, Code } from 'lucide-react';
+import { Coffee, Code, Award, Clock } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const events = [
-  { id: 1, year: '2024', title: 'Senior Full Stack Eng.', company: 'TechFlow Systems', type: 'Full-time', active: true },
-  { id: 2, year: '2022', title: 'Frontend Team Lead', company: 'Creative Digital', type: 'Full-time' },
-  { id: 3, year: '2021', title: 'Freelance Developer', company: 'Self-Employed', type: 'Contract' },
-  { id: 4, year: '2019', title: 'Junior Web Dev', company: 'StartUp Inc.', type: 'Full-time' },
-];
 
 const Experience: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".event-row", {
+      gsap.from(".stat-card", {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 70%",
         },
-        x: -50,
+        y: 50,
         opacity: 0,
         duration: 0.6,
         stagger: 0.1,
@@ -32,54 +25,49 @@ const Experience: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
+  const stats = [
+    { label: "Projects Completed", value: "25+", icon: <Code size={24} /> },
+    { label: "Hackathons", value: "4+", icon: <Award size={24} /> },
+    { label: "Years Experience", value: "3+", icon: <Clock size={24} /> },
+    { label: "Cups of Coffee", value: "200+", icon: <Coffee size={24} /> },
+  ];
+
   return (
-    <section id="experience" className="py-32 bg-brand-blue dark:bg-brand-darker transition-colors duration-500 text-white relative border-t border-white/10">
+    <section id="experience" className="py-24 bg-brand-blue dark:bg-brand-darker transition-colors duration-500 text-white relative border-t border-white/10">
       <div ref={containerRef} className="container mx-auto px-6 md:px-12">
-        
-        <div className="text-center mb-16">
-            <h2 className="font-display font-bold text-4xl md:text-6xl mb-6">Experience & History</h2>
-            <div className="flex justify-center gap-2">
-                {['Employment', 'Education', 'Hackathons'].map((filter, i) => (
-                    <button key={filter} className={`px-6 py-2 text-xs font-bold uppercase tracking-wider rounded-sm transition-colors ${i === 0 ? 'bg-white text-brand-blue dark:text-brand-dark' : 'bg-white/10 text-white hover:bg-white/20'}`}>
-                        {filter}
-                    </button>
-                ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+          <div className="order-2 md:order-1">
+            <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">My Journey</h2>
+            <div className="w-20 h-1 bg-white/30 mb-8"></div>
+            <p className="text-white/80 leading-relaxed font-sans text-lg mb-6">
+              My journey revolves around full-stack development, data structures & algorithms, and crafting seamless user experiences. I believe in writing maintainable code while constantly exploring new technologies.
+            </p>
+            <div className="grid grid-cols-2 gap-4 mt-8">
+              {stats.map((stat, idx) => (
+                <div key={idx} className="stat-card bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 hover:bg-white/20 transition-colors">
+                  <div className="mb-4 opacity-80">{stat.icon}</div>
+                  <h3 className="text-3xl font-display font-bold mb-1">{stat.value}</h3>
+                  <p className="text-xs uppercase tracking-wider opacity-70 font-bold">{stat.label}</p>
+                </div>
+              ))}
             </div>
-        </div>
+          </div>
 
-        <div className="flex flex-col">
-          {events.map((event) => (
-            <div 
-              key={event.id} 
-              className={`event-row group flex flex-col md:flex-row items-center justify-between py-8 border-b border-white/10 transition-colors ${event.active ? 'bg-white text-brand-blue dark:text-brand-dark -mx-6 px-6 rounded' : 'hover:bg-white/5'}`}
-            >
-              <div className="w-full md:w-24 text-sm font-bold opacity-60 mb-2 md:mb-0 font-mono">{event.year}</div>
-              
-              <div className="flex-grow flex flex-col md:flex-row md:items-center gap-4 md:gap-12 w-full">
-                 <div className="md:w-16 h-16 md:h-full flex items-center">
-                    <div className={`w-12 h-12 rounded border flex items-center justify-center ${event.active ? 'border-brand-blue dark:border-brand-dark' : 'border-white/30'}`}>
-                        <Code size={20} />
-                    </div>
-                 </div>
-
-                 <div className="flex-grow">
-                     <h3 className="font-display font-bold text-2xl md:text-3xl">{event.title}</h3>
-                     <span className="text-sm font-bold opacity-60 uppercase tracking-widest">{event.company}</span>
-                 </div>
-
-                 <div className="flex items-center gap-2 text-sm font-bold w-48 opacity-80">
-                    <Briefcase size={16} />
-                    {event.type}
-                 </div>
-              </div>
-
-              <div className="hidden md:flex w-12 justify-end">
-                 <ChevronRight className={`transition-transform group-hover:translate-x-1`} />
-              </div>
+          <div className="order-1 md:order-2 relative">
+            <div className="aspect-square rounded-3xl overflow-hidden relative z-10 border border-white/20 rotate-3 hover:rotate-0 transition-transform duration-500">
+              <img
+                src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Developer Lifestyle"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-brand-blue/30 mix-blend-overlay"></div>
             </div>
-          ))}
-        </div>
+            <div className="absolute -inset-4 border-2 border-white/10 rounded-3xl -z-10 -rotate-3"></div>
+          </div>
 
+        </div>
       </div>
     </section>
   );

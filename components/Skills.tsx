@@ -1,22 +1,39 @@
 import React from 'react';
 
-const skills = [
-  "React", "TypeScript", "Next.js", "Node.js", "GraphQL", "PostgreSQL", 
-  "Docker", "AWS", "TailwindCSS", "Three.js", "Solidity", "Python", 
-  "Redis", "Figma", "CI/CD", "System Design"
+const skillsData = [
+  {
+    category: "Frontend",
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "JavaScript (ES6+)"]
+  },
+  {
+    category: "Backend",
+    items: ["Node.js", "Express.js", "MongoDB", "GraphQL", "Prompt Engineering"]
+  },
+  {
+    category: "Mobile & Cloud",
+    items: ["React Native", "AWS", "GitHub", "CI/CD", "C++"]
+  },
+  {
+    category: "Additional",
+    items: ["Git", "REST APIs", "Testing", "Agile Methodology", "Java"]
+  }
 ];
 
 const Skills: React.FC = () => {
   return (
-    <section className="py-12 bg-white dark:bg-brand-darker border-y border-brand-dark/5 dark:border-white/5 overflow-hidden">
-      <div className="flex w-full whitespace-nowrap overflow-hidden">
-        <div className="animate-marquee inline-flex">
-          {[...skills, ...skills, ...skills].map((skill, index) => (
-            <div key={index} className="mx-8 flex items-center gap-4">
-              <span className="text-4xl md:text-5xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-blue dark:from-white dark:to-white/50 uppercase opacity-80 hover:opacity-100 transition-opacity cursor-default">
-                {skill}
-              </span>
-              <div className="w-3 h-3 bg-brand-dark dark:bg-brand-accent rounded-full"></div>
+    <section className="py-20 bg-brand-orange dark:bg-brand-dark transition-colors duration-500 relative z-20">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skillsData.map((skillGroup, idx) => (
+            <div key={idx} className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-colors">
+              <h3 className="text-white font-display font-bold text-xl mb-4 uppercase tracking-wider">{skillGroup.category}</h3>
+              <div className="flex flex-wrap gap-2">
+                {skillGroup.items.map((item) => (
+                  <span key={item} className="px-3 py-1 bg-white/20 text-white text-xs font-bold rounded-sm border border-white/10">
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -24,5 +41,4 @@ const Skills: React.FC = () => {
     </section>
   );
 };
-
 export default Skills;

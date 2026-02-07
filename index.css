@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #FF5428;
+    color: #1D1D1F;
+  }
+  .dark body {
+    background-color: #0f0f11;
+    color: #ffffff;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1D1D1F;
+    border-radius: 4px;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: #333;
+  }
+}
+
+@layer utilities {
+  .clip-text-image {
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+}

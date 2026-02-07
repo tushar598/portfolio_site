@@ -1,11 +1,13 @@
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { Suspense, useState, useEffect, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import About from './components/About';
-import Contact from './components/Contact';
-import Skills from './components/Skills';
+
+// Lazy load components
+const Projects = lazy(() => import('./components/Projects'));
+const Experience = lazy(() => import('./components/Experience'));
+const About = lazy(() => import('./components/About'));
+const Contact = lazy(() => import('./components/Contact'));
+const Skills = lazy(() => import('./components/Skills'));
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -27,19 +29,20 @@ const App: React.FC = () => {
   return (
     <div className={`min-h-screen selection:bg-brand-blue dark:selection:bg-brand-accent selection:text-white ${darkMode ? 'dark' : ''}`}>
       <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
-      
+
       <main className="bg-brand-orange dark:bg-brand-dark transition-colors duration-500">
         <Hero />
-        <Skills />
-        
+        <Suspense fallback={<div className="h-20 flex items-center justify-center text-white/50">Loading Skills...</div>}>
+          <Skills />
+        </Suspense>
+
         {/* Suspense boundary */}
         <Suspense fallback={<div className="h-screen flex items-center justify-center text-white font-bold">Loading...</div>}>
-           <Projects />
-           <Experience />
-           <About />
+          <Projects />
+          <Experience />
+          <About />
+          <Contact />
         </Suspense>
-        
-        <Contact />
       </main>
     </div>
   );
