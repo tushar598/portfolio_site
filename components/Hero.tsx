@@ -26,18 +26,27 @@ const Hero: React.FC = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/TusharFinalResume.pdf";
+    link.download = "Tushar_Chouhan_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   return (
-    <section ref={containerRef} className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-brand-orange dark:bg-brand-dark transition-colors duration-500 pt-20">
+    <section ref={containerRef} className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-brand-orange dark:bg-brand-dark transition-colors duration-500 pt-32 md:pt-20">
       <ThreeScene />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center md:items-end justify-between h-full pb-20 md:pb-32">
 
         {/* Left Side: Typography */}
         <div ref={textRef} className="text-white max-w-3xl">
-          <h3 className="hero-text-reveal text-sm md:text-base font-bold tracking-[0.2em] mb-4 uppercase opacity-80 dark:text-brand-accent will-change-transform">
+          <h3 className="hero-text-reveal text-xs md:text-sm font-bold tracking-[0.2em] mb-4 uppercase opacity-80 dark:text-brand-accent will-change-transform">
             Available for work • India
           </h3>
-          <h1 className="hero-text-reveal font-display font-bold text-[4.5rem] md:text-[6rem] lg:text-[7.5rem] leading-[0.9] uppercase mb-6 will-change-transform">
+          <h1 className="hero-text-reveal font-display font-bold text-[3.5rem] sm:text-6xl md:text-[6rem] lg:text-[7.5rem] leading-[0.9] uppercase mb-6 will-change-transform">
             Creative<br />Developer<br />& Designer
           </h1>
           <div className="hero-text-reveal flex flex-col md:flex-row md:items-center gap-6 mt-8 will-change-transform">
@@ -49,8 +58,8 @@ const Hero: React.FC = () => {
             </div>
           </div>
           <div className="hero-text-reveal mt-10 will-change-transform flex gap-4">
-            <Button icon onClick={() => window.open('https://github.com', '_blank')}>View Work</Button>
-            <Button variant="outline" onClick={() => window.open('/resume.pdf', '_blank')}>Download CV</Button>
+            <Button icon onClick={() => window.open('https://github.com/tushar598', '_blank')}>View Work</Button>
+            <Button variant="outline" onClick={handleDownloadCV}>Download CV</Button>
           </div>
         </div>
 

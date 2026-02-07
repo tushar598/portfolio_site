@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
         <section id="contact" className="bg-brand-blue dark:bg-brand-darker transition-colors duration-500 text-white py-24 border-t border-white/10 relative">
             <div className="container mx-auto px-6 md:px-12">
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 border border-white/10">
+                <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 border border-white/10">
                     <div>
                         <h2 className="font-display font-bold text-4xl md:text-6xl mb-4">Let's build<br />something impactful.</h2>
                         <p className="text-white/60 max-w-md mb-6">Open for collaboration. Available for full-stack web applications, blockchain integration, and system architecture.</p>

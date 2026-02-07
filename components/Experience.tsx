@@ -35,7 +35,7 @@ const Experience: React.FC = () => {
   return (
     <section id="experience" className="py-24 bg-brand-blue dark:bg-brand-darker transition-colors duration-500 text-white relative border-t border-white/10">
       <div ref={containerRef} className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
 
           <div className="order-2 md:order-1">
             <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">My Journey</h2>

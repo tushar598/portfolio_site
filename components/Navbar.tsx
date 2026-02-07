@@ -44,11 +44,11 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleTheme }) => {
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 group" onClick={(e) => handleLinkClick(e, '#home')}>
           <div className="relative w-10 h-10 bg-white dark:bg-brand-accent rounded-lg flex items-center justify-center overflow-hidden transition-transform group-hover:rotate-12">
-            <span className="font-display font-bold text-xl text-brand-blue dark:text-brand-dark">CD</span>
+            <span className="font-display font-bold text-xl text-brand-blue dark:text-brand-dark">WE</span>
           </div>
           <div className="flex flex-col leading-none text-white font-display uppercase tracking-widest font-bold text-sm">
-            <span>Creative</span>
-            <span>Dev</span>
+            <span>Make</span>
+            <span>Web</span>
           </div>
         </a>
 
@@ -98,13 +98,13 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleTheme }) => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-brand-orange dark:bg-brand-dark border-t border-white/10 p-6 md:hidden flex flex-col gap-6 shadow-2xl h-screen">
+        <div className="absolute top-full left-0 w-full bg-brand-orange dark:bg-brand-dark border-t border-white/10 p-6 md:hidden flex flex-col gap-6 shadow-2xl h-[calc(100vh-100%)] overflow-y-auto">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => handleLinkClick(e, link.href)}
               className="text-white font-display font-bold text-2xl uppercase"
-              onClick={() => setIsOpen(false)}
             >
               {link.name}
             </a>

@@ -3,26 +3,31 @@
 @tailwind utilities;
 
 @layer base {
+
+  html,
   body {
-    background-color: #FF5428;
-    color: #1D1D1F;
+    @apply antialiased bg-white dark:bg-brand-dark text-brand-blue dark:text-white transition-colors duration-500 overflow-x-hidden;
   }
+
   .dark body {
     background-color: #0f0f11;
     color: #ffffff;
   }
-  
+
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
+
   ::-webkit-scrollbar-track {
     background: transparent;
   }
+
   ::-webkit-scrollbar-thumb {
     background: #1D1D1F;
     border-radius: 4px;
   }
+
   .dark ::-webkit-scrollbar-thumb {
     background: #333;
   }

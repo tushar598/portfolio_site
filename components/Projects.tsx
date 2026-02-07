@@ -9,21 +9,23 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    category: "Full Stack",
-    description: "A full-featured e-commerce platform with real-time inventory management, secure payments, and analytics dashboard.",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "#"
+    title: "AI-Fashion Search Engine",
+    category: "AI / Machine Learning",
+    description: "A fully AI-powered fashion search engine that allows users to search for fashion items using natural language queries.",
+    tags: ["React", "Node.js", "MongoDB", "Scrapper", "FastAPI", "Python", "SerpAPI", "JavaScript", "LLM"],
+    image: "/AIfashion.png",
+    link: "https://github.com/tushar598/Hackwave-hackathon-36hr",
+    liveLink: "https://hackwave-hackathon-36hr.vercel.app/"
   },
   {
     id: 2,
-    title: "AI Task Manager",
+    title: "Career-Connect",
     category: "AI / Productivity",
-    description: "An AI-powered task management system designed to enhance productivity and automate planning.",
-    tags: ["Next.js", "TypeScript", "Prisma", "OpenAI"],
-    image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "#"
+    description: "An AI-powered platform for finding job opportunities and career based on your resume.",
+    tags: ["React.js", "Node.js", "MongoDB", "OpenAI", "JavaScript"],
+    image: "/CareerConnect.png",
+    link: "https://github.com/tushar598/jobScrapper",
+    liveLink: "https://github.com/tushar598/jobScrapper"
   },
   {
     id: 3,
@@ -32,7 +34,8 @@ const projects = [
     description: "A visually rich, animation-driven personal portfolio showcasing creativity and technical expertise.",
     tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
     image: "https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "#"
+    link: "#",
+    liveLink: ""
   },
   {
     id: 4,
@@ -41,7 +44,8 @@ const projects = [
     description: "A real-time cryptocurrency analytics dashboard with live charts and market data.",
     tags: ["Vue.js", "D3.js", "WebSocket"],
     image: "https://images.unsplash.com/photo-1621504450168-38c6814cc584?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "#"
+    link: "#",
+    liveLink: ""
   },
   {
     id: 5,
@@ -50,7 +54,8 @@ const projects = [
     description: "A mobile-first social media application with messaging, engagement features, and real-time updates.",
     tags: ["React Native", "Firebase", "Redux"],
     image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "#"
+    link: "#",
+    liveLink: ""
   },
   {
     id: 6,
@@ -59,13 +64,14 @@ const projects = [
     description: "A complete Learning Management System for managing courses, students, and progress tracking.",
     tags: ["React", "Django", "PostgreSQL"],
     image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    link: "#"
+    link: "#",
+    liveLink: ""
   }
 ];
 
 const ProjectCard: React.FC<{ project: any }> = ({ project }) => {
   return (
-    <div className={`group relative flex flex-col h-full bg-white/10 dark:bg-white/5 backdrop-blur-sm border border-white/20 dark:border-white/10 rounded-3xl p-6 transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden`}>
+    <div className={`group relative flex flex-col h-full bg-white/10 dark:bg-white/5 backdrop-blur-sm border border-white/20 dark:border-white/10 rounded-3xl p-5 md:p-6 transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden`}>
       {/* Header */}
       <div className="flex justify-between items-start mb-6 z-10">
         <div>
@@ -80,7 +86,7 @@ const ProjectCard: React.FC<{ project: any }> = ({ project }) => {
           <a href={project.link} className="w-10 h-10 border border-white/30 rounded flex items-center justify-center hover:bg-white hover:text-brand-orange transition-colors">
             <Github size={18} />
           </a>
-          <a href={project.link} className="w-10 h-10 border border-white/30 rounded flex items-center justify-center hover:bg-white hover:text-brand-orange transition-colors">
+          <a href={project.liveLink} className="w-10 h-10 border border-white/30 rounded flex items-center justify-center hover:bg-white hover:text-brand-orange transition-colors">
             <ExternalLink size={18} />
           </a>
         </div>
@@ -110,7 +116,8 @@ const ProjectCard: React.FC<{ project: any }> = ({ project }) => {
           ))}
         </div>
 
-        <Button icon variant="secondary" className="w-full md:w-auto">View Code</Button>
+        <Button icon variant="secondary"
+          className="w-full md:w-auto"><a href={project.link}>View Code</a></Button>
       </div>
     </div>
   );
@@ -136,6 +143,10 @@ const Projects: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
+  const handleGitHubProfile = () => {
+    window.open('https://github.com/tushar598', '_blank');
+  }
+
   return (
     <section id="works" className="py-24 bg-brand-blue dark:bg-brand-darker transition-colors duration-500 relative">
       {/* Background Grid - CSS Pattern */}
@@ -149,7 +160,7 @@ const Projects: React.FC = () => {
             <h4 className="text-white/60 font-bold tracking-widest uppercase text-sm mb-2">Featured Work</h4>
             <h2 className="text-white font-display font-bold text-5xl md:text-7xl uppercase">Latest<br />Deployments</h2>
           </div>
-          <Button variant="outline" className="mt-6 md:mt-0">GitHub Profile</Button>
+          <Button variant="outline" onClick={handleGitHubProfile} className="mt-6 md:mt-0">GitHub Profile</Button>
         </div>
 
         {/* Bento Grid Layout */}

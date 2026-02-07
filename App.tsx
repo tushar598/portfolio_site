@@ -10,7 +10,7 @@ const Contact = lazy(() => import('./components/Contact'));
 const Skills = lazy(() => import('./components/Skills'));
 
 const App: React.FC = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   // Toggle function
   const toggleTheme = () => {
