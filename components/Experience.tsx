@@ -26,7 +26,7 @@ const Experience: React.FC = () => {
   }, []);
 
   const stats = [
-    { label: "Projects Completed", value: "25+", icon: <Code size={24} /> },
+    { label: "Projects Completed", value: "15+", icon: <Code size={24} /> },
     { label: "Hackathons Attended", value: "6+", icon: <Award size={24} /> },
     { label: "Years Experience", value: "1+", icon: <Clock size={24} /> },
     { label: "Hackathon Wins", value: "3x", icon: <Trophy size={24} /> },
@@ -56,11 +56,13 @@ const Experience: React.FC = () => {
 
           <div className="order-1 md:order-2 relative">
             <div className="aspect-square rounded-2xl sm:rounded-3xl overflow-hidden relative z-10 border border-white/20 rotate-3 hover:rotate-0 transition-transform duration-500">
-              <img
-                src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Developer Lifestyle"
+              <video
+                src="/code_view.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="w-full h-full object-cover"
-                loading="lazy"
               />
               <div className="absolute inset-0 bg-brand-blue/30 mix-blend-overlay"></div>
             </div>

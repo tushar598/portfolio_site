@@ -48,11 +48,12 @@ const About: React.FC = () => {
 
           <div className="order-1 lg:order-2 text-white relative">
             <div className="absolute -inset-4 bg-white/10 rounded-2xl sm:rounded-3xl transform -rotate-3 blur-sm"></div>
-            <img
-              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              alt="Coding Setup"
-              loading="lazy"
-              decoding="async"
+            <video
+              src="/about_view.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
               className="rounded-2xl sm:rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-700 opacity-90 hover:opacity-100 relative z-10 border border-white/20 w-full"
             />
           </div>

@@ -1,6 +1,12 @@
-import React, { Suspense, useState, useEffect, lazy } from 'react';
+import React, { Suspense, useState, useEffect, lazy, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import CustomCursor from './components/CustomCursor';
+import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // Lazy load components
 const Projects = lazy(() => import('./components/Projects'));
@@ -26,8 +32,32 @@ const App: React.FC = () => {
     }
   }, [darkMode]);
 
+  // Lenis smooth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      lerp: 0.07,
+      smoothWheel: true,
+    });
+
+    // Integrate with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      lenis.destroy();
+      gsap.ticker.remove((time) => {
+        lenis.raf(time * 1000);
+      });
+    };
+  }, []);
+
   return (
     <div className={`min-h-screen selection:bg-brand-blue dark:selection:bg-brand-accent selection:text-white ${darkMode ? 'dark' : ''}`}>
+      <CustomCursor />
       <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
 
       <main className="bg-brand-orange dark:bg-brand-dark transition-colors duration-500">
