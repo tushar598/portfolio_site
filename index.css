@@ -4,9 +4,23 @@
 
 @layer base {
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   html,
   body {
     @apply antialiased bg-white dark:bg-brand-dark text-brand-blue dark:text-white transition-colors duration-500 overflow-x-hidden;
+  }
+
+  /* Accessibility - focus visible states */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-accent;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply ring-2 ring-brand-accent ring-offset-2 ring-offset-brand-dark;
   }
 
   .dark body {
