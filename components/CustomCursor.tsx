@@ -10,7 +10,7 @@ const CustomCursor: React.FC = () => {
     const [isHovering, setIsHovering] = useState(false);
     const rafRef = useRef<number>(0);
 
-    const TRAIL_COUNT = 6;
+    const TRAIL_COUNT = 3;
     const TRAIL_DELAY = 0.08; // Each trail segment lerps at a slightly different speed
 
     useEffect(() => {
@@ -113,6 +113,7 @@ const CustomCursor: React.FC = () => {
                     opacity: isVisible ? 1 : 0,
                     transition: 'width 0.2s ease, height 0.2s ease, opacity 0.3s ease',
                     filter: 'blur(1px)',
+                    willChange: 'transform, width, height, opacity',
                 }}
             />
             {/* Trailing particles */}
@@ -135,6 +136,7 @@ const CustomCursor: React.FC = () => {
                         opacity: 0,
                         transition: 'opacity 0.3s ease',
                         filter: `blur(${1 + i * 0.5}px)`,
+                        willChange: 'transform, opacity',
                     }}
                 />
             ))}

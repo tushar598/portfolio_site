@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Code, Award, Clock, Trophy } from 'lucide-react';
+import LazyVideo from './ui/LazyVideo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,7 +57,7 @@ const Experience: React.FC = () => {
 
           <div className="order-1 md:order-2 relative">
             <div className="aspect-square rounded-2xl sm:rounded-3xl overflow-hidden relative z-10 border border-white/20 rotate-3 hover:rotate-0 transition-transform duration-500">
-              <video
+              <LazyVideo
                 src="/code_view.mp4"
                 autoPlay
                 muted

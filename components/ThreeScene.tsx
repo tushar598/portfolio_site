@@ -118,7 +118,7 @@ const ThreeScene: React.FC = () => {
         <spotLight position={[0, 15, 0]} angle={0.3} penumbra={1} intensity={0.3} />
 
         <InteractiveSphere />
-        <Particles count={300} />
+        <Particles count={150} />
 
         <Environment preset="night" />
       </Canvas>

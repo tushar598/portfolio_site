@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './ui/Button';
+import LazyVideo from './ui/LazyVideo';
 
 const About: React.FC = () => {
   // Assuming containerRef is defined elsewhere, e.g., const containerRef = React.useRef(null);
@@ -48,7 +49,7 @@ const About: React.FC = () => {
 
           <div className="order-1 lg:order-2 text-white relative">
             <div className="absolute -inset-4 bg-white/10 rounded-2xl sm:rounded-3xl transform -rotate-3 blur-sm"></div>
-            <video
+            <LazyVideo
               src="/about_view.mp4"
               autoPlay
               muted
