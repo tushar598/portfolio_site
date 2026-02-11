@@ -28,7 +28,7 @@ const Experience: React.FC = () => {
   const stats = [
     { label: "Projects Completed", value: "25+", icon: <Code size={24} /> },
     { label: "Hackathons Attended", value: "6+", icon: <Award size={24} /> },
-    { label: "Years Experience", value: "3+", icon: <Clock size={24} /> },
+    { label: "Years Experience", value: "1+", icon: <Clock size={24} /> },
     { label: "Hackathon Wins", value: "3x", icon: <Trophy size={24} /> },
   ];
 

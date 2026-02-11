@@ -13,6 +13,7 @@ const Contact: React.FC = () => {
                         <div className="flex flex-col gap-1 sm:gap-2 text-xs sm:text-sm font-bold opacity-80">
                             <span>Dewas, MP, India</span>
                             <a href="mailto:tushar19chouhan@gmail.com" className="hover:text-brand-orange transition-colors">tushar19chouhan@gmail.com</a>
+                            <span>+91 91098 21765</span>
                         </div>
                     </div>
 
@@ -41,13 +42,6 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="mt-12 sm:mt-16 md:mt-20 flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-6 sm:pt-8 gap-6">
-                    <div className="flex items-center gap-2">
-                        <div className="bg-white dark:bg-brand-accent text-brand-blue dark:text-brand-dark font-display font-bold text-xl sm:text-2xl px-2 py-1 rounded-sm">CD</div>
-                        <div className="flex flex-col leading-none text-white font-display uppercase text-[0.65rem] tracking-widest font-bold opacity-80">
-                            <span>Creative</span>
-                            <span>Dev</span>
-                        </div>
-                    </div>
 
                     <div className="flex gap-4 sm:gap-6 md:gap-8 text-[10px] sm:text-xs font-bold uppercase tracking-wider opacity-60 flex-wrap justify-center">
                         <a href="#works" className="hover:text-white hover:opacity-100 transition-opacity">Projects</a>
@@ -57,7 +51,7 @@ const Contact: React.FC = () => {
                     </div>
 
                     <div className="text-[10px] uppercase font-bold opacity-40 text-center md:text-right">
-                        2024 | Copyright<br />All Rights Reserved
+                        2026 | Copyright<br />All Rights Reserved
                     </div>
                 </div>
             </div>

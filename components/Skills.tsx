@@ -3,19 +3,19 @@ import React from 'react';
 const skillsData = [
   {
     category: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "JavaScript (ES6+)"]
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GSAP", "JavaScript (ES6+)"]
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express.js", "MongoDB", "GraphQL", "Prompt Engineering"]
+    items: ["Node.js", "Express.js", "MongoDB", "Prompt Engineering"]
   },
   {
     category: "Mobile & Cloud",
-    items: ["React Native", "AWS", "GitHub", "CI/CD", "C++"]
+    items: ["React Native", "GitHub", "CI/CD", "C++"]
   },
   {
     category: "Additional",
-    items: ["Git", "REST APIs", "Testing", "Agile Methodology", "Java"]
+    items: ["Git", "REST APIs", "Testing", "Java Basics"]
   }
 ];
 

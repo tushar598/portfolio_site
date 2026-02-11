@@ -50,17 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleTheme }) => {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-3 sm:py-4 bg-brand-orange/90 dark:bg-brand-dark/90 backdrop-blur-md shadow-sm' : 'py-4 sm:py-6 md:py-8 bg-transparent'}`}>
       <div className="container mx-auto px-4 sm:px-6 md:px-12 flex justify-between items-center">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group" onClick={(e) => handleLinkClick(e, '#home')}>
-          <div className="relative w-8 h-8 sm:w-10 sm:h-10 bg-white dark:bg-brand-accent rounded-lg flex items-center justify-center overflow-hidden transition-transform group-hover:rotate-12">
-            <span className="font-display font-bold text-lg sm:text-xl text-brand-blue dark:text-brand-dark">WE</span>
-          </div>
-          <div className="flex flex-col leading-none text-white font-display uppercase tracking-widest font-bold text-xs sm:text-sm">
-            <span>Make</span>
-            <span>Web</span>
-          </div>
-        </a>
-
+        
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6 lg:gap-12">
           {navLinks.map((link) => (
